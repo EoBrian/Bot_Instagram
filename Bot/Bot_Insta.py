@@ -9,7 +9,7 @@ class BotInstagram:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.browser = webdriver.Firefox()
+        self.browser = webdriver.Firefox(executable_path='geckodriver.exe')
 
 
     def login(self):
