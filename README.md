@@ -12,4 +12,4 @@ requisitos:
 
 --==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==--==
 
-~~~~~~ execulte o código main.py para iniciar o bot
+__execulte o código main.py para iniciar o bot__
