@@ -2,14 +2,20 @@ from time import sleep
 from os import system
 
 from selenium import webdriver
+from selenium.webdriver.opera.options import Options
 from selenium.webdriver.common.keys import Keys
+
 
 
 class BotInstagram:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.browser = webdriver.Firefox(executable_path='geckodriver.exe')
+        
+        options = Options()
+        options.binary_location = "C:/Users/remis/AppData/Local/Programs/Opera GX/launcher.exe"
+        
+        self.browser = webdriver.Opera(executable_path="operadriver.exe", options = options)
 
 
     def login(self):
