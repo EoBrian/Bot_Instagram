@@ -1,5 +1,6 @@
 from time import sleep
 from os import system
+from random import randint
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -46,30 +47,34 @@ class BotInstagram:
         browser = self.browser
 
         #Clicando na primeira publicação
-        sleep(3)
+        sleep(4)
         browser.find_element_by_xpath('/html/body/div[1]/section/main/article/div[1]/div/div/div[1]/div[1]/a/div[1]/div[2]').click()
   
         for publicação in range(1, numero_de_curtidas):
+           
+            wait_page = randint(10, 20)
+            wait_comment = randint(1,5)
             #Curte a publicação
-            sleep(2)
+
+            sleep(wait_comment)
             try:
                 browser.find_element_by_xpath('/html/body/div[6]/div[3]/div/article/div/div[2]/div/div/div[2]/section[1]/span[1]/button').click()
             except:
                 self.exitBrowser()
 
             #comentando nas fotos
-            sleep(3)
+            sleep(wait_comment)
             comentario = browser.find_element_by_xpath('/html/body/div[6]/div[3]/div/article/div/div[2]/div/div/div[2]/section[3]/div/form/textarea')
             comentario.clear()
             comentario.send_keys('Ótimo conteudo!')
 
             #enviando o comentário
-            sleep(3)
+            sleep(wait_comment)
             enviar_comentario = browser.find_element_by_xpath('/html/body/div[6]/div[3]/div/article/div/div[2]/div/div/div[2]/section[3]/div/form/button')
             enviar_comentario.click()
 
             #passa para a proxima publicação
-            sleep(13)
+            sleep(wait_page)
             if publicação == 1:
                 browser.find_element_by_xpath('/html/body/div[6]/div[2]/div/div/button').click()
             else:
